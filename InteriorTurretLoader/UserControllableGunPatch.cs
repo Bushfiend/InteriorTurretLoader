@@ -147,14 +147,17 @@ namespace InteriorTurretLoader
                             continue;
 
                         var move = Math.Min(need, available);
+                        var rounded = Math.Round(move);
+
                         MyInventory.TransferByPlanner(sourceInventory, inventory,
-                            (SerializableDefinitionId)ammo, MyItemFlags.None, (VRage.MyFixedPoint)move);
+                            (SerializableDefinitionId)ammo, MyItemFlags.None, (VRage.MyFixedPoint)rounded);
                     }
                     else
                     {
                         var extra = -need;
+                        var rounded = Math.Round(extra);
                         MyInventory.TransferByPlanner(inventory, sourceInventory,
-                            (SerializableDefinitionId)ammo, MyItemFlags.None, (VRage.MyFixedPoint)extra);
+                            (SerializableDefinitionId)ammo, MyItemFlags.None, (VRage.MyFixedPoint)rounded);
                     }
 
                     break;
